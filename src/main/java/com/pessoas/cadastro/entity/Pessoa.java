@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 @Getter
 @Setter
-public class pessoa {
+public class Pessoa {
 
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
@@ -16,14 +16,14 @@ public class pessoa {
     @Setter(AccessLevel.NONE)
     private long id;
     @Column (name = "nome", nullable = false)
-    private string nome;
+    private String nome;
     @Column (name = "cpf", nullable = false, unique = true)
-    private string cpf;
+    private String cpf;
     @Column (name = "idade", nullable = false)
-    private string idade;
+    private String idade;
 
     @Builder
-    public pessoa(string nome, string cpf, string idade) {
+    public Pessoa(String nome, String cpf, String idade) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
