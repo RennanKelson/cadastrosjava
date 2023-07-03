@@ -10,6 +10,6 @@ public interface PessoaService {
     PessoaResponseDTO findById (Long id);
     List<PessoaResponseDTO> findAll();
     PessoaResponseDTO register (PessoaRequestDTO pessoaRequestDTO);
-    PessoaResponseDTO update (PessoaRequestDTO pessoaRequestDTO);
+    PessoaResponseDTO update (PessoaRequestDTO pessoaRequestDTO, Long id);
     String delete (Long id);
 }
