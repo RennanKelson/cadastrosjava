@@ -5,7 +5,7 @@ import com.pessoas.cadastro.dto.response.PessoaResponseDTO;
 import com.pessoas.cadastro.entity.Pessoa;
 
 public class PessoaMapper {
-    public Pessoa retornaPessoa (PessoaRequestDTO pessoaDTO) {
+    public Pessoa voltaPessoa (PessoaRequestDTO pessoaDTO) {
         return Pessoa.builder()
                 .nome(pessoaDTO.getNome())
                 .cpf (pessoaDTO.getCpf())
@@ -13,7 +13,7 @@ public class PessoaMapper {
                 .build();
     }
 
-    public PessoaResponseDTO retornaPessoaDTO (Pessoa pessoa){
+    public PessoaResponseDTO voltaPessoaDTO(Pessoa pessoa){
         return new PessoaResponseDTO (pessoa);
     }
 }

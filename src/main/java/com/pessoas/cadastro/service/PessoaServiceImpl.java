@@ -21,8 +21,8 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public PessoaResponseDTO findById(Long id) {
-        Pessoa pessoa = returnaPessoa (id);
-        return pessoaMapper.retornaPessoaDTO(pessoa);
+        Pessoa pessoa = retornaPessoa (id);
+        return pessoaMapper.voltaPessoaDTO(pessoa);
     }
 
     @Override
@@ -45,7 +45,7 @@ public class PessoaServiceImpl implements PessoaService {
         return null;
     }
 
-    private Pessoa returnaPessoa (Long id) {
+    private Pessoa retornaPessoa (Long id) {
         return pessoaRepository.findById(id).orElseThrow(()-> new RuntimeException("Pessoa não encontrada no banco de dados"));
     }
 }
