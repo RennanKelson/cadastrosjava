@@ -1,7 +1,9 @@
 package com.pessoas.cadastro.dto.response;
 
 import com.pessoas.cadastro.entity.Pessoa;
+import lombok.Getter;
 
+@Getter
 public class PessoaResponseDTO {
     private long id;
     private String nome;

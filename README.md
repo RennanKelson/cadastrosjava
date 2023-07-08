@@ -21,9 +21,7 @@ Antes de executar a aplicação, certifique-se de ter instalado as seguintes fer
 
 Siga estas etapas para executar o projeto em sua máquina local:
 
-1. Clone este repositório:
-
-[https://github.com/RennanKelson/cadastrosjava.git](https://github.com/RennanKelson/cadastrosjava.git)
+1. Clone este repositório: [https://github.com/RennanKelson/cadastrosjava.git](https://github.com/RennanKelson/cadastrosjava.git)
 
 2. Importe o projeto em sua IDE Java preferida (por exemplo, IntelliJ, Eclipse).
 
