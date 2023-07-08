@@ -21,31 +21,35 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public PessoaResponseDTO findById(Long id) {
-        Pessoa pessoa = retornaPessoa (id);
-        return pessoaMapper.voltaPessoaDTO(pessoa);
+        return pessoaMapper.voltaPessoaDTO(retornaPessoa(id));
     }
 
     @Override
     public List<PessoaResponseDTO> findAll() {
-        return null;
+        return pessoaMapper.voltaListaPessoaDTO(pessoaRepository.findAll());
     }
 
     @Override
     public PessoaResponseDTO register(PessoaRequestDTO pessoaRequestDTO) {
-        return null;
+        Pessoa pessoa = pessoaMapper.voltaPessoa(pessoaRequestDTO);
+        return pessoaMapper.voltaPessoaDTO(pessoaRepository.save(pessoa));
     }
 
     @Override
     public PessoaResponseDTO update(PessoaRequestDTO pessoaRequestDTO, Long id) {
-        Pessoa pessoa = returnaPessoa (id);
+        Pessoa pessoa = retornaPessoa (id);
+        pessoaMapper.atualizaPessoaBanco(pessoa, pessoaRequestDTO);
+        return pessoaMapper.voltaPessoaDTO(pessoaRepository.save(pessoa));
     }
 
     @Override
     public String delete(Long id) {
-        return null;
+        pessoaRepository.deleteById(id);
+        return "Pessoa id: "+id+" foi apagada";
     }
 
     private Pessoa retornaPessoa (Long id) {
-        return pessoaRepository.findById(id).orElseThrow(()-> new RuntimeException("Pessoa não encontrada no banco de dados"));
+        return pessoaRepository.findById(id)
+                .orElseThrow(()-> new RuntimeException("Pessoa não encontrada no banco de dados"));
     }
 }

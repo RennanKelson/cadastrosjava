@@ -4,6 +4,9 @@ import com.pessoas.cadastro.dto.request.PessoaRequestDTO;
 import com.pessoas.cadastro.dto.response.PessoaResponseDTO;
 import com.pessoas.cadastro.entity.Pessoa;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PessoaMapper {
     public Pessoa voltaPessoa (PessoaRequestDTO pessoaDTO) {
         return Pessoa.builder()
@@ -15,5 +18,15 @@ public class PessoaMapper {
 
     public PessoaResponseDTO voltaPessoaDTO(Pessoa pessoa){
         return new PessoaResponseDTO (pessoa);
+    }
+
+    public List<PessoaResponseDTO> voltaListaPessoaDTO(List<Pessoa> listaPessoas) {
+        return listaPessoas.stream().map(PessoaResponseDTO::new).collect(Collectors.toList());
+    }
+
+    public void atualizaPessoaBanco(Pessoa pessoa, PessoaRequestDTO pessoaRequestDTO) {
+        pessoa.setNome(pessoaRequestDTO.getNome());
+        pessoa.setCpf(pessoaRequestDTO.getCpf());
+        pessoa.setIdade(pessoaRequestDTO.getIdade());
     }
 }
