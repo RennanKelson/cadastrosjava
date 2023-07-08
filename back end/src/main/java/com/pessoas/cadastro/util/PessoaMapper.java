@@ -3,10 +3,11 @@ package com.pessoas.cadastro.util;
 import com.pessoas.cadastro.dto.request.PessoaRequestDTO;
 import com.pessoas.cadastro.dto.response.PessoaResponseDTO;
 import com.pessoas.cadastro.entity.Pessoa;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
-
+@Component
 public class PessoaMapper {
     public Pessoa voltaPessoa (PessoaRequestDTO pessoaDTO) {
         return Pessoa.builder()
