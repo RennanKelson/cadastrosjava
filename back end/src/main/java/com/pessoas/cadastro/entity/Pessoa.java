@@ -21,7 +21,8 @@ public class Pessoa {
     private String cpf;
     @Column (name = "idade", nullable = false)
     private String idade;
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne
+    @JoinColumn(name = "login_id")
     private Login login;
 
     @Builder

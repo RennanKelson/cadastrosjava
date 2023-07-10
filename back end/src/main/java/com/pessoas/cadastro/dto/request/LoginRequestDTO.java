@@ -1,7 +1,6 @@
 package com.pessoas.cadastro.dto.request;
 
 import com.pessoas.cadastro.entity.Pessoa;
-import jakarta.persistence.Column;
 import lombok.Getter;
 
 @Getter

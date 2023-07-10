@@ -6,12 +6,14 @@ import lombok.Getter;
 
 @Getter
 public class LoginResponseDTO {
+    private Long id;
     private Pessoa pessoa;
     private String usuario;
     private String senha;
     private String email;
 
     public LoginResponseDTO (Login login) {
+        this.id = login.getId();
         this.pessoa = login.getPessoa();
         this.usuario = login.getUsuario();
         this.senha = login.getSenha();
