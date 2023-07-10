@@ -11,7 +11,7 @@ import lombok.*;
 public class Pessoa {
 
     @Id
-    @GeneratedValue( strategy = GenerationType.IDENTITY)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     @Column (name = "id", nullable = false, unique = true)
     @Setter(AccessLevel.NONE)
     private long id;
@@ -21,11 +21,14 @@ public class Pessoa {
     private String cpf;
     @Column (name = "idade", nullable = false)
     private String idade;
+    @OneToOne(mappedBy = "pessoa")
+    private Login login;
 
     @Builder
-    public Pessoa(String nome, String cpf, String idade) {
+    public Pessoa(String nome, String cpf, String idade, Login login) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
+        this.login = login;
     }
 }
