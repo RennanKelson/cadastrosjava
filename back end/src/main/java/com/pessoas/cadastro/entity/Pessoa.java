@@ -21,18 +21,18 @@ public class Pessoa {
     private String cpf;
     @Column (name = "idade", nullable = false)
     private Integer idade;
-    @Enumerated(EnumType.STRING)
-    private PerfilUsuario perfil;
+    @Column (name = "email", nullable = false)
+    private String email;
     @OneToOne
     @JoinColumn(name = "login_id")
     private Login login;
 
     @Builder
-    public Pessoa(String nome, String cpf, Integer idade, PerfilUsuario perfil, Login login) {
+    public Pessoa(String nome, String cpf, Integer idade, String email, Login login) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
-        this.perfil = perfil;
+        this.email = email;
         this.login = login;
     }
 }

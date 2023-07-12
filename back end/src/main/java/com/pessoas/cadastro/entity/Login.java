@@ -11,21 +11,21 @@ import lombok.*;
 public class Login {
     @Id
     private Long id;
-    @OneToOne(mappedBy = "login")
-    @MapsId
-    private Pessoa pessoa;
     @Column (name = "usuario", nullable = false, unique = true)
     private String usuario;
     @Column (name = "senha", nullable = false)
     private String senha;
-    @Column (name = "email", nullable = false)
-    private String email;
+    @Enumerated(EnumType.STRING)
+    private PerfilUsuario perfil;
+    @OneToOne(mappedBy = "login")
+    @MapsId
+    private Pessoa pessoa;
 
     @Builder
-    public Login(String usuario, String senha, String email, Pessoa pessoa) {
+    public Login(String usuario, String senha, PerfilUsuario perfil, Pessoa pessoa) {
         this.usuario = usuario;
         this.senha = senha;
-        this.email = email;
+        this.perfil = perfil;
         this.pessoa = pessoa;
     }
 }
