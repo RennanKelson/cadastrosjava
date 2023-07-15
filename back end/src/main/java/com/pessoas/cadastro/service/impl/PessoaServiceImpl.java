@@ -7,13 +7,11 @@ import com.pessoas.cadastro.repository.PessoaRepository;
 import com.pessoas.cadastro.service.PessoaService;
 import com.pessoas.cadastro.util.PessoaMapper;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-@Primary
 @RequiredArgsConstructor
 public class PessoaServiceImpl implements PessoaService {
 
@@ -22,25 +20,28 @@ public class PessoaServiceImpl implements PessoaService {
 
     @Override
     public PessoaResponseDTO findById(Long id) {
-        return pessoaMapper.voltaPessoaDTO(retornaPessoa(id));
+        Pessoa pessoa = retornaPessoa(id);
+        return pessoaMapper.voltaPessoaDTO(pessoa);
     }
 
     @Override
     public List<PessoaResponseDTO> findAll() {
-        return pessoaMapper.voltaListaPessoaDTO(pessoaRepository.findAll());
+        List<Pessoa> pessoas = pessoaRepository.findAll();
+        return pessoaMapper.voltaListaPessoaDTO(pessoas);
     }
 
     @Override
     public PessoaResponseDTO register(PessoaRequestDTO pessoaRequestDTO) {
         Pessoa pessoa = pessoaMapper.voltaPessoa(pessoaRequestDTO);
-        return pessoaMapper.voltaPessoaDTO(pessoaRepository.save(pessoa));
+        Pessoa salvarPessoa = pessoaRepository.save(pessoa);
+        return pessoaMapper.voltaPessoaDTO(salvarPessoa);
     }
 
-    @Override
     public PessoaResponseDTO update(PessoaRequestDTO pessoaRequestDTO, Long id) {
-        Pessoa pessoa = retornaPessoa (id);
+        Pessoa pessoa = retornaPessoa(id);
         pessoaMapper.atualizaPessoaBanco(pessoa, pessoaRequestDTO);
-        return pessoaMapper.voltaPessoaDTO(pessoaRepository.save(pessoa));
+        Pessoa PessoaAtualizada = pessoaRepository.save(pessoa);
+        return pessoaMapper.voltaPessoaDTO(PessoaAtualizada);
     }
 
     @Override
