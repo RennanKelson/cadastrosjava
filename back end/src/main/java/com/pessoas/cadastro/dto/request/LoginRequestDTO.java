@@ -8,6 +8,4 @@ import lombok.Getter;
 public class LoginRequestDTO {
     private String usuario;
     private String senha;
-    private PerfilUsuario perfil;
-    private Pessoa pessoa;
 }
