@@ -8,6 +8,7 @@ import com.pessoas.cadastro.service.PessoaService;
 import com.pessoas.cadastro.util.PessoaMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -36,7 +37,7 @@ public class PessoaServiceImpl implements PessoaService {
         Pessoa salvarPessoa = pessoaRepository.save(pessoa);
         return pessoaMapper.voltaPessoaDTO(salvarPessoa);
     }
-
+    @Override
     public PessoaResponseDTO update(PessoaRequestDTO pessoaRequestDTO, Long id) {
         Pessoa pessoa = retornaPessoa(id);
         pessoaMapper.atualizaPessoaBanco(pessoa, pessoaRequestDTO);

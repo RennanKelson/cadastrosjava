@@ -8,6 +8,7 @@ import com.pessoas.cadastro.service.LoginService;
 import com.pessoas.cadastro.util.LoginMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
