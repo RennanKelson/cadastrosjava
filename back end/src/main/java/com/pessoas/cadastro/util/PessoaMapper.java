@@ -14,6 +14,7 @@ public class PessoaMapper {
                 .nome(pessoaDTO.getNome())
                 .cpf (pessoaDTO.getCpf())
                 .idade (pessoaDTO.getIdade())
+                .email (pessoaDTO.getEmail())
                 .build();
     }
 

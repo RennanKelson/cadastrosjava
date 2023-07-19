@@ -1,5 +1,6 @@
 package com.pessoas.cadastro.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,6 +21,7 @@ public class Login {
     private PerfilUsuario perfil;
     @OneToOne(mappedBy = "login")
     @MapsId
+    @JsonIgnore
     private Pessoa pessoa;
 
     @Builder

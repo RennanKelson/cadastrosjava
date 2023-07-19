@@ -1,5 +1,6 @@
 package com.pessoas.cadastro.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -26,14 +27,14 @@ public class Pessoa {
     private String email;
     @OneToOne
     @JoinColumn(name = "login_id")
+    @JsonIgnore
     private Login login;
 
     @Builder
-    public Pessoa(String nome, String cpf, Integer idade, String email, Login login) {
+    public Pessoa(String nome, String cpf, Integer idade, String email) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
         this.email = email;
-        this.login = login;
     }
 }

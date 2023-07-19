@@ -10,5 +10,4 @@ public class PessoaRequestDTO {
     private String cpf;
     private Integer idade;
     private String email;
-    private Login login;
 }
