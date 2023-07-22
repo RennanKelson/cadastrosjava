@@ -22,7 +22,7 @@ public class Login {
     private String senha;
     @Enumerated(EnumType.STRING)
     private PerfilUsuario perfil;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn (name = "pessoa_id")
     private Pessoa pessoa;
 

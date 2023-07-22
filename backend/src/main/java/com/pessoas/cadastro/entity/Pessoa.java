@@ -26,6 +26,7 @@ public class Pessoa {
     @Column (name = "email", nullable = false)
     private String email;
     @OneToOne (mappedBy = "pessoa")
+    @JoinColumn (name = "login_id")
     private Login login;
 
     @Builder

@@ -2,10 +2,14 @@ package com.pessoas.cadastro.service.impl;
 
 import com.pessoas.cadastro.dto.request.LoginRequestDTO;
 import com.pessoas.cadastro.dto.response.LoginResponseDTO;
+import com.pessoas.cadastro.dto.response.PessoaResponseDTO;
 import com.pessoas.cadastro.entity.Login;
 import com.pessoas.cadastro.repository.LoginRepository;
+import com.pessoas.cadastro.repository.PessoaRepository;
 import com.pessoas.cadastro.service.LoginService;
+import com.pessoas.cadastro.service.PessoaService;
 import com.pessoas.cadastro.util.LoginMapper;
+import com.pessoas.cadastro.util.PessoaMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

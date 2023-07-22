@@ -12,7 +12,6 @@ public class PessoaResponseDTO {
     private String cpf;
     private Integer idade;
     private String email;
-    private Login login;
 
     public PessoaResponseDTO (Pessoa pessoa) {
         this.id = pessoa.getId();
@@ -20,6 +19,5 @@ public class PessoaResponseDTO {
         this.cpf = pessoa.getCpf();
         this.idade = pessoa.getIdade();
         this.email = pessoa.getEmail();
-        this.login = pessoa.getLogin();
     }
 }
