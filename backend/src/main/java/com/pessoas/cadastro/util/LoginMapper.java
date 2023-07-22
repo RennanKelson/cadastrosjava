@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Component
 public class LoginMapper {
-    public Login voltaLogin (LoginRequestDTO loginDTO) {
+    public Login voltaEntidadeLogin(LoginRequestDTO loginDTO) {
         return Login.builder()
                 .usuario(loginDTO.getUsuario())
                 .senha(loginDTO.getSenha())

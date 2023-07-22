@@ -12,6 +12,9 @@ import lombok.*;
 @EqualsAndHashCode(of="id")
 public class Login {
     @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @Column (name = "id", nullable = false, unique = true)
+    @Setter(AccessLevel.NONE)
     private Long id;
     @Column (name = "usuario", nullable = false, unique = true)
     private String usuario;
@@ -19,9 +22,8 @@ public class Login {
     private String senha;
     @Enumerated(EnumType.STRING)
     private PerfilUsuario perfil;
-    @OneToOne(mappedBy = "login")
-    @MapsId
-    @JsonIgnore
+    @OneToOne
+    @JoinColumn (name = "pessoa_id")
     private Pessoa pessoa;
 
     @Builder

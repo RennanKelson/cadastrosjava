@@ -8,7 +8,6 @@ import com.pessoas.cadastro.service.LoginService;
 import com.pessoas.cadastro.util.LoginMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 @Service
@@ -32,7 +31,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public LoginResponseDTO register(LoginRequestDTO loginRequestDTO) {
-        Login login = loginMapper.voltaLogin(loginRequestDTO);
+        Login login = loginMapper.voltaEntidadeLogin(loginRequestDTO);
         Login salvarLogin = loginRepository.save(login);
         return loginMapper.voltaLoginDTO(salvarLogin);
     }
@@ -48,7 +47,7 @@ public class LoginServiceImpl implements LoginService {
     @Override
     public String delete(Long id) {
         loginRepository.deleteById(id);
-        return "Login :"+id+"foi apagado!";
+        return "Login: "+id+" foi apagado!";
     }
 
     private Login retornaLogin (Long id){

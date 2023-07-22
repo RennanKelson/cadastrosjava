@@ -25,9 +25,7 @@ public class Pessoa {
     private Integer idade;
     @Column (name = "email", nullable = false)
     private String email;
-    @OneToOne
-    @JoinColumn(name = "login_id")
-    @JsonIgnore
+    @OneToOne (mappedBy = "pessoa")
     private Login login;
 
     @Builder
