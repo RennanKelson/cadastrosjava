@@ -1,7 +1,9 @@
 package com.pessoas.cadastro.controller;
 
 import com.pessoas.cadastro.dto.request.LoginRequestDTO;
+import com.pessoas.cadastro.dto.request.LoginValidarRequestDTO;
 import com.pessoas.cadastro.dto.response.LoginResponseDTO;
+import com.pessoas.cadastro.dto.response.LoginValidarResponseDTO;
 import com.pessoas.cadastro.service.LoginService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -31,8 +33,15 @@ public class LoginController {
     @PostMapping
     public ResponseEntity<LoginResponseDTO> register(@RequestBody LoginRequestDTO loginRequestDTO, UriComponentsBuilder uriComponentsBuilder) {
         LoginResponseDTO loginResponseDTO = loginService.register(loginRequestDTO);
-        URI uri = uriComponentsBuilder.path("/pessoa/id").buildAndExpand(loginResponseDTO.getId()).toUri();
+        URI uri = uriComponentsBuilder.path("/login/id").buildAndExpand(loginResponseDTO.getId()).toUri();
         return ResponseEntity.created(uri).body(loginResponseDTO);
+    }
+
+    @PostMapping
+    public ResponseEntity<LoginValidarResponseDTO> validaLogin (@RequestBody LoginValidarRequestDTO loginValidarRequestDTO, UriComponentsBuilder uriComponentsBuilder) {
+        LoginValidarResponseDTO loginValidarResponseDTO = loginService.validaLogin(loginValidarRequestDTO);
+        URI uri = UriComponentsBuilder.path("/validar/id").buildAndExpand(loginValidarResponseDTO.getIdPessoa()).toUri();
+        return ResponseEntity.created(uri).body(loginValidarResponseDTO);
     }
 
     @PutMapping(value = "/{id}")

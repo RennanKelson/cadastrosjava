@@ -1,7 +1,9 @@
 package com.pessoas.cadastro.service.impl;
 
 import com.pessoas.cadastro.dto.request.LoginRequestDTO;
+import com.pessoas.cadastro.dto.request.LoginValidarRequestDTO;
 import com.pessoas.cadastro.dto.response.LoginResponseDTO;
+import com.pessoas.cadastro.dto.response.LoginValidarResponseDTO;
 import com.pessoas.cadastro.dto.response.PessoaResponseDTO;
 import com.pessoas.cadastro.entity.Login;
 import com.pessoas.cadastro.repository.LoginRepository;
@@ -52,6 +54,15 @@ public class LoginServiceImpl implements LoginService {
     public String delete(Long id) {
         loginRepository.deleteById(id);
         return "Login: "+id+" foi apagado!";
+    }
+
+    @Override
+    public LoginValidarResponseDTO validaLogin (LoginValidarRequestDTO loginValidarRequestDTO) {
+        Login login = this.loginRepository.findByUsuarioAndSenha(loginValidarRequestDTO.getUsuario(), loginValidarRequestDTO.getSenha());
+        if (login == null){
+            throw new RuntimeException("Login ou senha não autorizado, campos inválidos");
+        }
+        return this.loginMapper.voltaLoginValidadoDTO(login);
     }
 
     private Login retornaLogin (Long id){
