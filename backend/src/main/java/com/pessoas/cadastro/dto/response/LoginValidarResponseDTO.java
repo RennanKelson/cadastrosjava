@@ -1,8 +1,10 @@
 package com.pessoas.cadastro.dto.response;
 
+import lombok.Setter;
+
+@Setter
 public class LoginValidarResponseDTO {
-    private Long id;
     private String usuario;
     private String senha;
-    private PessoaResponseDTO pessoa;
+    private Long idPessoa;
 }
