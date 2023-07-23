@@ -16,5 +16,4 @@ public class LoginResponseDTO {
     private String senha;
     private PerfilUsuario perfil;
     private PessoaResponseDTO pessoa;
-
 }
