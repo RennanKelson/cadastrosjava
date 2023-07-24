@@ -40,7 +40,7 @@ public class LoginController {
     @PostMapping
     public ResponseEntity<LoginValidarResponseDTO> validaLogin (@RequestBody LoginValidarRequestDTO loginValidarRequestDTO, UriComponentsBuilder uriComponentsBuilder) {
         LoginValidarResponseDTO loginValidarResponseDTO = loginService.validaLogin(loginValidarRequestDTO);
-        URI uri = UriComponentsBuilder.path("/validar/id").buildAndExpand(loginValidarResponseDTO.getIdPessoa()).toUri();
+        URI uri = uriComponentsBuilder.path("/loginvalidado/id").buildAndExpand(loginValidarResponseDTO.getIdPessoa()).toUri();
         return ResponseEntity.created(uri).body(loginValidarResponseDTO);
     }
 
