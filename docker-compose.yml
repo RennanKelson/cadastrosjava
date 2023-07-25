@@ -1,0 +1,36 @@
+version: "3"
+
+services:
+  projeto-cadastro-db:
+    image: postgres:12
+    container_name: "db"
+    environment:
+      - POSTGRES_DB=projeto-cadastro
+      - POSTGRES_USER=projeto-cadastro
+      - POSTGRES_PASSWORD=123456
+      - TZ=GMT-3
+    volumes:
+      - "./data/postgres:/var/lib/postgres/data"
+    ports:
+      - 5433:5432
+    networks:
+      - project-cadastro-networks
+
+  projeto-cadastro-backend:
+    restart: on-failure:5
+    container_name: backend
+    build: "./backend"
+    depends_on:
+      - projeto-cadastro-db
+    networks:
+      - project-cadastro-networks
+    environment:
+      - DATABASE_URL=jdbc:postgresql://projeto-cadastro-db:5432/projeto-cadastro
+      - DATABASE_USERNAME=projeto-cadastro
+      - DATABASE_PASSWORD=123456
+    ports:
+      - 8080:8080
+    
+networks:
+  project-cadastro-networks:
+    driver: bridge
