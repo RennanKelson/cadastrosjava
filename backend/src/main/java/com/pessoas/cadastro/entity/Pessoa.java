@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "tb_pessoa")
 @NoArgsConstructor
@@ -28,6 +30,9 @@ public class Pessoa {
     @OneToOne (mappedBy = "pessoa")
     @JoinColumn (name = "login_id")
     private Login login;
+    @OneToMany
+    @JoinColumn(name = "pessoa_id")
+    private List<Treino> treino;
 
     @Builder
     public Pessoa(String nome, String cpf, Integer idade, String email) {
