@@ -30,7 +30,7 @@ public class LoginController {
         return ResponseEntity.ok().body(loginService.findAll());
     }
 
-    @PostMapping
+    @PostMapping(value = "/register")
     public ResponseEntity<LoginResponseDTO> register(@RequestBody LoginRequestDTO loginRequestDTO, UriComponentsBuilder uriComponentsBuilder) {
         LoginResponseDTO loginResponseDTO = loginService.register(loginRequestDTO);
         URI uri = uriComponentsBuilder.path("/login/id").buildAndExpand(loginResponseDTO.getId()).toUri();
