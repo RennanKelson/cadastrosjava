@@ -6,7 +6,7 @@
             class="img-fluid" alt="Sample image">
         </div>
         <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-          <form>
+          <form [formGroup]="signupForm" (ngSubmit)="registerLogin()">
             <div class="divider d-flex align-items-center my-4">
                 <p class="text-center fw-bold mx-3 mb-0">Sign Up</p>
             </div>
@@ -14,41 +14,44 @@
             <!-- User input -->
             <div class="form-outline mb-4">
               <input type="text" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Digite o seu Usuário" />
+                placeholder="Digite o seu Usuário" formControlName="usuario" />
               <label class="form-label" for="form3Example3">Usuário</label>
             </div>
             <div class="form-outline mb-4">
               <input type="password" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Crie sua Senha" />
+                placeholder="Crie sua Senha" formControlName="senha" />
               <label class="form-label" for="form3Example3">Senha</label>
             </div>
-            <div class="form-outline mb-4">
-              <input type="email" id="form3Example3" class="form-control form-control-lg"
-                placeholder="Digite o seu nome" />
-              <label class="form-label" for="form3Example3">Nome</label>
-            </div>
 
-            <!-- CPF input -->
-            <div class="form-outline mb-3">
-              <input type="CPF" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Digite seu CPF" />
-              <label class="form-label" for="form3Example4">CPF</label>
-            </div>
+            <div class="form-group" formGroupName="pessoa">
+              <div class="form-outline mb-4">
+                <input type="email" id="form3Example3" class="form-control form-control-lg"
+                  placeholder="Digite o seu nome" formControlName="nome" />
+                <label class="form-label" for="form3Example3">Nome</label>
+              </div>
 
-            <!-- Age Input -->
-            <div class="form-outline mb-3">
-              <input type="idade" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Digite sua idade" />
-              <label class="form-label" for="form3Example4">Idade</label>
-            </div>
-            <div class="form-outline mb-3">
-              <input type="email" id="form3Example4" class="form-control form-control-lg"
-                placeholder="Digite seu email" />
-              <label class="form-label" for="form3Example4">E-mail</label>
+              <!-- CPF input -->
+              <div class="form-outline mb-3">
+                <input type="CPF" id="form3Example4" class="form-control form-control-lg"
+                  placeholder="Digite seu CPF" formControlName="cpf"/>
+                <label class="form-label" for="form3Example4">CPF</label>
+              </div>
+
+              <!-- Age Input -->
+              <div class="form-outline mb-3">
+                <input type="idade" id="form3Example4" class="form-control form-control-lg"
+                  placeholder="Digite sua idade" formControlName="idade" />
+                <label class="form-label" for="form3Example4">Idade</label>
+              </div>
+              <div class="form-outline mb-3">
+                <input type="email" id="form3Example4" class="form-control form-control-lg"
+                  placeholder="Digite seu email" formControlName="email"/>
+                <label class="form-label" for="form3Example4">E-mail</label>
+              </div>
             </div>
 
             <div class="text-center text-lg-start mt-4 pt-2">
-              <button type="button" class="btn btn-primary btn-lg"
+              <button type="submit" class="btn btn-primary btn-lg"
                 style="padding-left: 2.5rem; padding-right: 2.5rem;">Registrar</button>
               <button class="btn btn-lg btn-primary mx-2" routerLink="">Já tenho conta</button>
             </div>
