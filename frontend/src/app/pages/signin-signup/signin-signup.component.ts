@@ -34,12 +34,18 @@ export class SigninSignupComponent implements OnInit{
 
   validateLogin(){
     const validateLogin: ILogin = this.loginForm.value;
-    this.loginService.validateLogin(validateLogin).subscribe(() => {
+    this.loginService.validateLogin(validateLogin).subscribe((response: ILogin) => {
+      if(response.idPessoa){
+        localStorage.setItem('idPerson', response.idPessoa.toString())
+      }
+
       Swal.fire(
         'Sucesso',
         'Login Realizado',
         'success'
       )
+
+      this.router.navigate(['/training']);
     })
   }
 

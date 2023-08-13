@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { SigninSignupComponent } from './pages/signin-signup/signin-signup.component';
 import { ErrorComponent } from './handlers/error/error.component';
 import { SharedModule } from './shared/shared.module';
+import { TrainingComponent } from './pages/training/training.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SigninSignupComponent,
-    ErrorComponent
+    ErrorComponent,
+    TrainingComponent
   ],
   imports: [
     BrowserModule,
