@@ -39,12 +39,6 @@ export class SigninSignupComponent implements OnInit{
         localStorage.setItem('idPerson', response.idPessoa.toString())
       }
 
-      Swal.fire(
-        'Sucesso',
-        'Login Realizado',
-        'success'
-      )
-
       this.router.navigate(['/training']);
     })
   }
