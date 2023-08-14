@@ -31,16 +31,16 @@ services:
     ports:
       - 8080:8080
   
-  # projeto-cadastro-frontend:
-  #   restart: on-failure:5
-  #   container_name: frontend
-  #   build: "./frontend"
-  #   depends_on:
-  #     - projeto-cadastro-backend
-  #   networks:
-  #     - project-cadastro-networks
-  #   ports:
-  #     - 4200:4200
+  projeto-cadastro-frontend:
+    restart: on-failure:5
+    container_name: frontend
+    build: "./frontend"
+    depends_on:
+      - projeto-cadastro-backend
+    networks:
+      - project-cadastro-networks
+    ports:
+      - 4200:4200
     
 networks:
   project-cadastro-networks:

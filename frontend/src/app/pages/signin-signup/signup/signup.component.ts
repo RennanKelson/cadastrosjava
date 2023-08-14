@@ -47,7 +47,7 @@ export class SignupComponent implements OnInit {
     this.loginService.register(loginRegister).subscribe(() => {
       Swal.fire(
         'Sucesso',
-        'Login registrado com Sucesso',
+        'Usuário registrado com Sucesso',
         'success'
       )
       this.router.navigate(['']);
